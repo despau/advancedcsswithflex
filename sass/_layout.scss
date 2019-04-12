@@ -1,0 +1,123 @@
+.container{
+    // so the container can decrease in width if theres not enought space to display 120rem
+    max-width: 120rem;
+    //center the container inside of the body
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+
+
+    min-height: 50rem;
+
+    //we are using a desktop first approach
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+
+}
+
+
+.header{
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-grey-light-2);
+    //align the logo, searhbar, and user-menu
+    display: flex;
+    //align the elements along the main axis
+    justify-content: space-between;
+    //align along the cross axis now
+    align-items: center;
+
+    @media only screen and (max-width: $bp-smallest){
+        flex-wrap: wrap;
+        align-content: space-around;
+        height: 11rem;
+    }
+
+}
+
+
+
+.content{
+    display: flex;
+    //put the sidebar on top of the main
+    @media only screen and (max-width: $bp-medium){
+        flex-direction: column;
+    }
+
+}
+
+
+
+.sidebar{
+    background-color: var(--color-grey-dark-1);
+    
+    //setting the width of the sidebar. 0-grow, 0-shrink, 18rem basis(width)
+    flex: 0 0 18%;
+
+    display: flex;
+    //change the direction of the main axis
+    flex-direction: column;
+    //split all the remaining space between the nav and the legal blocks
+    justify-content: space-between;
+}
+
+
+
+
+.hotel-view{
+    background-color: #fff;
+
+
+    //want it to grow as much as possible
+    flex: 1;
+
+
+}
+
+.detail{
+    font-size: 1.4rem;
+    display: flex;
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-1);
+    border-bottom: (--line);
+
+    //put the sidebar on top of the main
+    @media only screen and (max-width: $bp-medium){
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+
+    //change the flex direction at 600px
+    @media only screen and (max-width: $bp-small){
+        flex-direction: column;
+    }
+}
+
+.description { 
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    //dont grow, dont shrink, occupy 60% of width
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+    padding: 3rem;
+    @media only screen and (max-width: $bp-small){
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+}
+
+.user-reviews {
+    //background-color: yellow;
+    //grow to occupy the remaining space
+    flex: 1;
+    
+    //to align the button.
+    display: flex;
+    flex-direction: column;
+    //the btn extands cause default align items is to stretch
+    align-items: center;
+}
